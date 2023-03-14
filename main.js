@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const burgerMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const ShoppingCartIcon = document.querySelector(".navbar-shopping-cart");
-const asideProduct = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
@@ -11,22 +11,22 @@ burgerMenu.addEventListener("click", toggleMobileMenu);
 ShoppingCartIcon.addEventListener("click", toggleCarritoAside);
 
 function toggleDesktopMenu() {
-  const isAsideMenuClosed = asideProduct.classList.contains("inactive");
+  const isAsideMenuClosed = shoppingCartContainer.classList.contains("inactive");
 
   desktopMenu.classList.toggle("inactive");
 
   if (!isAsideMenuClosed) {
-    asideProduct.classList.add("inactive");
+    shoppingCartContainer.classList.add("inactive");
   }
 }
 
 function toggleMobileMenu() {
-  const isAsideMenuClosed = asideProduct.classList.contains("inactive");
+  const isAsideMenuClosed = shoppingCartContainer.classList.contains("inactive");
 
   mobileMenu.classList.toggle("inactive");
 
   if (!isAsideMenuClosed) {
-    asideProduct.classList.add("inactive");
+    shoppingCartContainer.classList.add("inactive");
   }
 }
 
@@ -34,7 +34,7 @@ function toggleCarritoAside() {
   const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
   const isToogleDesktopClosed = desktopMenu.classList.contains("inactive");
 
-  asideProduct.classList.toggle("inactive");
+  shoppingCartContainer.classList.toggle("inactive");
 
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add("inactive");
@@ -103,7 +103,6 @@ function renderProducts(arr) {
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
 
-    // product= {name, price, image} -> product.image
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
 
